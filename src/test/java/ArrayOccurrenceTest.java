@@ -1,9 +1,8 @@
 import junit.framework.TestCase;
 
-import java.util.Arrays;
+
 import java.util.Random;
 import java.util.concurrent.ForkJoinPool;
-import java.util.stream.IntStream;
 
 public class ArrayOccurrenceTest extends TestCase {
 
@@ -28,11 +27,11 @@ public class ArrayOccurrenceTest extends TestCase {
 //        Arrays.stream(arr).forEach(System.out::println);
 //
 //    }
-    private int[] intStream(int size) {
-        IntStream intStream = IntStream.range(1, size);
-        Arrays.stream(intStream.toArray()).forEach(System.out::println);
-        return intStream.toArray();
-    }
+//    private int[] intStream(int size) {
+//        IntStream intStream = IntStream.range(1, size);
+//        Arrays.stream(intStream.toArray()).forEach(System.out::println);
+//        return intStream.toArray();
+//    }
 
     public void testArrayOccSeq() {
 
@@ -75,7 +74,7 @@ public class ArrayOccurrenceTest extends TestCase {
         System.out.printf("Parallel Stream Time execution for Random Array of size %d is %d ms number of occurrences is %d\n", size, endTimer, array.sum);
 //        assertEquals(15,res);
     }
-    public void testArrayOccSeqlStream() {
+    public void testArrayOccSeqStream() {
         System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism","7");
 
         int size = 1000_000_00;
@@ -89,9 +88,9 @@ public class ArrayOccurrenceTest extends TestCase {
         System.out.printf("Sequential Stream Time execution for Random Array of size %d is %d ms number of occurrences is %d\n", size, endTimer, array.sum);
 //        assertEquals(15,res);
     }
-    public void resource() {
-        System.out.println(Runtime.getRuntime().availableProcessors());
-        System.out.println(ForkJoinPool.commonPool().getParallelism());
-    }
+//    public void resource() {
+//        System.out.println(Runtime.getRuntime().availableProcessors());
+//        System.out.println(ForkJoinPool.commonPool().getParallelism());
+//    }
 
 }
